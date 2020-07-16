@@ -1,0 +1,57 @@
+{
+	"name": "hello-world",
+	"displayName": "hello-world",
+	"description": "Hello, world!",
+	"publisher": "la-urre",
+	"repository": {"url": "https://github.com/damien-urruty-sonarsource/first-vscode-extension"},
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.47.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:hello-world.helloWorld"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "hello-world.helloWorld",
+				"title": "Hello World"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "hello-world.helloWorld",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js",
+		"package": "webpack --mode development && mkdir -p dist/vsix && vsce package -o dist/vsix/hello-world.vsix"
+	},
+	"dependencies": {
+		"lodash": "^4.17.19"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"@types/vscode": "^1.47.0",
+		"eslint": "^6.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vsce": "^1.77.0",
+		"vscode-test": "^1.3.0",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.12"
+	}
+}
