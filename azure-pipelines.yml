@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: npx gulp package
+- script: npm install && npx gulp package
   displayName: 'Package extension'
 - task: PublishBuildArtifacts@1
   inputs:
